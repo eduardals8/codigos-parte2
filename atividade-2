@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"Portuguese");
+	
+    int N, soma = 0, i;
+
+    // Solicita ao usuário o valor de N
+    printf("Digite um número inteiro positivo N: ");
+    scanf("%d", &N);
+
+    // Verifica se N é positivo
+    if (N < 0) {
+        printf("Por favor, insira um número inteiro positivo.\n");
+        return 1;
+    }
+
+    // Calcula a soma dos N primeiros números naturais
+    for (i = 1; i <= N; i++) {
+        soma += i;
+    }
+
+    // Exibe o resultado
+    printf("A soma dos %d primeiros números naturais é: %d\n", N, soma);
+
+    return 0;
+}
