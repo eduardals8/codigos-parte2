@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"Portuguese");
+	
+    int base, expoente, i;
+    long resultado = 1; // Usa long para evitar problemas com formatação no Dev C++
+
+    // Solicita ao usuário a base e o expoente
+    printf("Digite a base: ");
+    scanf("%d", &base);
+    printf("Digite o expoente: ");
+    scanf("%d", &expoente);
+
+    // Se o expoente for negativo, informe que não é suportado
+    if (expoente < 0) {
+        printf("Este programa não suporta expoentes negativos.\n");
+        return 1;
+    }
+
+    // Calcula a base elevada ao expoente
+    for (i = 1; i <= expoente; i++) {
+        resultado *= base;
+    }
+
+    // Exibe o resultado
+    printf("%d elevado a %d é: %ld\n", base, expoente, resultado);
+
+    return 0;
+}
