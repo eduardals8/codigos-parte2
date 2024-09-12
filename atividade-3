@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int N, i;
+    int t1 = 0, t2 = 1, proximoTermo;
+
+    // Solicita ao usuário o valor de N
+    printf("Digite o número de termos da sequência de Fibonacci: ");
+    scanf("%d", &N);
+
+    // Verifica se N é positivo
+    if (N <= 0) {
+        printf("Por favor, insira um número inteiro positivo.\n");
+        return 1;
+    }
+
+    printf("Os primeiros %d termos da sequência de Fibonacci são: \n", N);
+
+    // Exibe a sequência de Fibonacci
+    for (i = 1; i <= N; i++) {
+        printf("%d ", t1);
+        proximoTermo = t1 + t2;
+        t1 = t2;
+        t2 = proximoTermo;
+    }
+
+    printf("\n");
+    
+    return 0;
+}
