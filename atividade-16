@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int numero, invertido = 0, resto, original;
+
+    // Solicita ao usuário um número
+    printf("Digite um número inteiro: ");
+    scanf("%d", &numero);
+
+    original = numero;  // Guarda o número original
+
+    // Inverte o número
+    while (numero != 0) {
+        resto = numero % 10;
+        invertido = invertido * 10 + resto;
+        numero /= 10;
+    }
+
+    // Verifica se o número original é igual ao invertido
+    if (original == invertido) {
+        printf("%d é um palíndromo.\n", original);
+    } else {
+        printf("%d não é um palíndromo.\n", original);
+    }
+
+    return 0;
+}
