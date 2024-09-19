@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"Portuguese");
+	
+    int n, i, chave, encontrado = 0;
+
+    // Solicita o tamanho do vetor
+    printf("Digite o número de elementos no vetor: ");
+    scanf("%d", &n);
+
+    int vetor[n];
+
+    // Lê os elementos do vetor
+    printf("Digite os %d números:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    // Solicita o número que o usuário deseja buscar
+    printf("Digite o número que deseja buscar: ");
+    scanf("%d", &chave);
+
+    // Busca linear no vetor
+    for (i = 0; i < n; i++) {
+        if (vetor[i] == chave) {
+            printf("Número %d encontrado na posição %d.\n", chave, i + 1);
+            encontrado = 1;
+            break;
+        }
+    }
+
+    // Se o número não foi encontrado
+    if (!encontrado) {
+        printf("Número %d não encontrado no vetor.\n", chave);
+    }
+
+    return 0;
+}
