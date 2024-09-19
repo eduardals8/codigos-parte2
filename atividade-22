@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <locale.h>
+
+int buscaBinaria(int vetor[], int n, int chave) {
+    int inicio = 0, fim = n - 1, meio;
+
+    while (inicio <= fim) {
+        meio = (inicio + fim) / 2;
+
+        // Verifica se a chave está no meio
+        if (vetor[meio] == chave) {
+            return meio; // Retorna o índice onde a chave foi encontrada
+        }
+
+        // Se a chave for maior, ignore a metade esquerda
+        if (vetor[meio] < chave) {
+            inicio = meio + 1;
+        }
+        // Se a chave for menor, ignore a metade direita
+        else {
+            fim = meio - 1;
+        }
+    }
+
+    return -1; // Retorna -1 se a chave não foi encontrada
+}
+
+int main() {
+	setlocale(LC_ALL,"Portuguese");
+	
+    int n, i, chave, resultado;
+
+    // Solicita o tamanho do vetor
+    printf("Digite o número de elementos no vetor: ");
+    scanf("%d", &n);
+
+    int vetor[n];
+
+    // Lê os elementos do vetor (o vetor deve estar previamente ordenado)
+    printf("Digite os %d números em ordem crescente:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    // Solicita o número que o usuário deseja buscar
+    printf("Digite o número que deseja buscar: ");
+    scanf("%d", &chave);
+
+    // Chama a função de busca binária
+    resultado = buscaBinaria(vetor, n, chave);
+
+    // Exibe o resultado da busca
+    if (resultado != -1) {
+        printf("Número %d encontrado na posição %d.\n", chave, resultado + 1);
+    } else {
+        printf("Número %d não encontrado no vetor.\n", chave);
+    }
+
+    return 0;
+}
