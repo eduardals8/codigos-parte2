@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <locale.h>
+
+int determinante2x2(int matriz[2][2]) {
+    return (matriz[0][0] * matriz[1][1]) - (matriz[0][1] * matriz[1][0]);
+}
+
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+    int matriz[2][2];
+
+    printf("Digite os elementos da matriz 2x2:\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    int det = determinante2x2(matriz);
+    
+    printf("O determinante da matriz é: %d\n", det);
+
+    return 0;
+}
